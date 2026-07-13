@@ -104,14 +104,16 @@
     background:
       radial-gradient(circle at 20% 20%, rgba(255,46,154,0.18), transparent 45%),
       radial-gradient(circle at 80% 70%, rgba(255,154,60,0.15), transparent 50%),
-      linear-gradient(180deg, #0b0b0d 0%, #111114 100%);
+      url('imgs/fire-indoor.jpg');
+    background-size:cover;
+    background-position:center 30%;
     overflow:hidden;
   }
   .hero::before{
     content:"";
     position:absolute; inset:0;
     background-image:
-      linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
+      linear-gradient(180deg, rgba(11,11,13,0.55) 0%, rgba(11,11,13,0.75) 55%, rgba(11,11,13,0.95) 100%),
       repeating-linear-gradient(115deg, rgba(212,175,106,0.05) 0px, rgba(212,175,106,0.05) 2px, transparent 2px, transparent 60px);
     z-index:0;
   }
@@ -166,21 +168,29 @@
   .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
   .about-visual{
     position:relative; aspect-ratio:4/5; border-radius:16px; overflow:hidden;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(255,46,154,0.35), transparent 55%),
-      radial-gradient(circle at 75% 75%, rgba(255,154,60,0.3), transparent 50%),
-      linear-gradient(160deg,#1a1a1e,#0b0b0d);
     border:1px solid rgba(212,175,106,0.25);
-    display:flex; align-items:center; justify-content:center;
+    display:flex; align-items:flex-end; justify-content:center;
+  }
+  .about-visual img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center;
+  }
+  .about-visual::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(11,11,13,0) 55%, rgba(11,11,13,0.85) 100%);
   }
   .about-visual .ring{
-    width:70%; aspect-ratio:1; border-radius:50%;
-    border:2px solid var(--gold);
-    display:flex; align-items:center; justify-content:center;
+    position:relative; z-index:1;
+    margin-bottom:26px;
+    padding:14px 30px;
+    border-radius:40px;
+    border:1px solid rgba(212,175,106,0.6);
+    background:rgba(11,11,13,0.45);
+    backdrop-filter:blur(4px);
     text-align:center;
   }
-  .about-visual .ring .script{font-size:44px; font-style:italic; color:var(--gold-light);}
-  .about-visual .ring .sub{font-size:11px; letter-spacing:5px; color:var(--gold); margin-top:6px;}
+  .about-visual .ring .script{font-size:28px; font-style:italic; color:var(--gold-light); line-height:1;}
+  .about-visual .ring .sub{font-size:10px; letter-spacing:5px; color:var(--gold); margin-top:4px;}
   .about-text p{color:var(--gray); margin-bottom:20px; font-size:16px;}
   .about-tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
   .tag{
@@ -231,13 +241,13 @@
   .g-item::before{content:""; position:absolute; inset:0; opacity:.9;}
   .g-item::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.75));}
   .g1{grid-column:span 2; grid-row:span 2;}
-  .g1::before{background:radial-gradient(circle at 30% 20%, rgba(255,46,154,0.5), transparent 60%), linear-gradient(160deg,#2a1a1f,#0b0b0d);}
-  .g2::before{background:radial-gradient(circle at 60% 40%, rgba(255,154,60,0.45), transparent 60%), linear-gradient(150deg,#241c12,#0b0b0d);}
-  .g3::before{background:radial-gradient(circle at 40% 60%, rgba(212,175,106,0.4), transparent 60%), linear-gradient(150deg,#1e1a10,#0b0b0d);}
-  .g4::before{background:radial-gradient(circle at 50% 30%, rgba(255,46,154,0.4), transparent 60%), linear-gradient(150deg,#241019,#0b0b0d);}
+  .g1::before{background-image:url('imgs/fire-indoor.jpg'); background-size:cover; background-position:center 25%;}
+  .g2::before{background-image:url('imgs/fire-street.jpg'); background-size:cover; background-position:center 20%;}
+  .g3::before{background-image:url('imgs/jerseys.jpg'); background-size:cover; background-position:center 20%;}
+  .g4::before{background-image:url('imgs/neon-sign.jpg'); background-size:cover; background-position:center 15%;}
   .g5{grid-column:span 2;}
-  .g5::before{background:radial-gradient(circle at 70% 60%, rgba(255,154,60,0.4), transparent 60%), linear-gradient(150deg,#1c1712,#0b0b0d);}
-  .g6::before{background:radial-gradient(circle at 30% 70%, rgba(255,46,154,0.35), transparent 60%), linear-gradient(150deg,#1a0f16,#0b0b0d);}
+  .g5::before{background-image:url('imgs/flags-portrait.jpg'); background-size:cover; background-position:center 25%;}
+  .g6::before{background-image:url('imgs/skyline-vibe.jpg'); background-size:cover; background-position:center;}
 
   /* ===== MENU HIGHLIGHTS ===== */
   .menu-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid rgba(212,175,106,0.2);}
@@ -410,11 +420,10 @@
 <section class="about" id="about">
   <div class="wrap about-grid">
     <div class="about-visual">
+      <img src="imgs/neon-sign.jpg" alt="Latina Rooftop — luces de neón">
       <div class="ring">
-        <div>
-          <div class="script">Latina</div>
-          <div class="sub">ROOFTOP</div>
-        </div>
+        <div class="script">Latina</div>
+        <div class="sub">ROOFTOP</div>
       </div>
     </div>
     <div class="about-text">
@@ -490,11 +499,11 @@
     </div>
     <div class="gallery-grid">
       <div class="g-item g1"><span>Yo soy Latina — noches de neón</span></div>
-      <div class="g-item g2"><span>Cócteles de autor</span></div>
-      <div class="g-item g3"><span>Cocina a la brasa</span></div>
-      <div class="g-item g4"><span>La casa de la Selección</span></div>
-      <div class="g-item g5"><span>Shows de fuego en vivo</span></div>
-      <div class="g-item g6"><span>El mejor rooftop de Medellín</span></div>
+      <div class="g-item g2"><span>Shows de fuego en vivo</span></div>
+      <div class="g-item g3"><span>La casa de la Selección</span></div>
+      <div class="g-item g4"><span>El mejor rooftop de Medellín</span></div>
+      <div class="g-item g5"><span>Ambiente único, cada noche</span></div>
+      <div class="g-item g6"><span>La buena vibra no conoce fronteras</span></div>
     </div>
     <div style="text-align:center; margin-top:36px;">
       <a href="https://www.instagram.com/latinarooftop/" target="_blank" rel="noopener" class="btn btn-outline">Ver más en Instagram @latinarooftop</a>
